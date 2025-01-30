@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Studio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #ff6347;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e53e32;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 id="title">Photo Studio</h1>
+            <button id="lang-toggle" onclick="toggleLanguage()">Change Language</button>
+        </header>
+
+        <main>
+            <section id="services">
+                <h2 id="services-title">Services Offered:</h2>
+                <ul>
+                    <li id="service-1">Wedding Photography</li>
+                    <li id="service-2">Thumbnail Design</li>
+                    <li id="service-3">Portraits</li>
+                </ul>
+            </section>
+
+            <section id="contact">
+                <h2 id="contact-title">Contact Us:</h2>
+                <p id="phone">Phone: +91 123 456 7890</p>
+                <p id="email">Email: contact@photostudio.com</p>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        let isEnglish = true;
+
+        function toggleLanguage() {
+            const elements = {
+                title: document.getElementById("title"),
+                servicesTitle: document.getElementById("services-title"),
+                service1: document.getElementById("service-1"),
+                service2: document.getElementById("service-2"),
+                service3: document.getElementById("service-3"),
+                contactTitle: document.getElementById("contact-title"),
+                phone: document.getElementById("phone"),
+                email: document.getElementById("email"),
+                langToggle: document.getElementById("lang-toggle")
+            };
+
+            const englishText = {
+                title: "Photo Studio",
+                servicesTitle: "Services Offered:",
+                service1: "Wedding Photography",
+                service2: "Thumbnail Design",
+                service3: "Portraits",
+                contactTitle: "Contact Us:",
+                phone: "Phone: +91 123 456 7890",
+                email: "Email: contact@photostudio.com",
+                langToggle: "Change to Telugu"
+            };
+
+            const teluguText = {
+                title: "ఫోటో స్టూడియో",
+                servicesTitle: "సేవలు అందించబడుతున్నాయి:",
+                service1: "వేడింగ్ ఫోటోగ్రఫీ",
+                service2: "థంబ్‌నెయిల్ డిజైన్",
+                service3: "పోర్ట్రెయిట్",
+                contactTitle: "మమ్మల్ని సంప్రదించండి:",
+                phone: "ఫోన్: +91 123 456 7890",
+                email: "ఈమెయిల్: contact@photostudio.com",
+                langToggle: "Change to English"
+            };
+
+            if (isEnglish) {
+                setText(elements, teluguText);
+            } else {
+                setText(elements, englishText);
+            }
+
+            isEnglish = !isEnglish;
+        }
+
+        function setText(elements, text) {
+            for (const key in elements) {
+                elements[key].innerText = text[key];
+            }
+        }
+
+        // Set initial text
+        const initialText = isEnglish ? englishText : teluguText;
+        setText(elements, englishText); // Set initial text to English
+    </script>
+</body>
+</html>
